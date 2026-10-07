@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora - ThymeLeaf </title>
+</head>
+<body><h1>Calculadora</h1>
+<form th:action="@{/calculadora/calcular}" method="get">
+    <label>Número 1
+        <input type="number" name="n1" th:value="${n1}">
+    </label>
+
+    <label>Número 2
+        <input type="number" name="n2" th:value="${n2}">
+    </label>
+
+    <select name="operacao" >
+        <option value="somar" th:selected ="${operacao == 'somar'}">Somar</option>
+        <option value="subtrair" th:selected ="${operacao == 'subtrair'}">Subtrair</option>
+        <option value="multiplicar" th:selected ="${operacao == 'multiplicar'}">Multiplicação</option>
+        <option value="dividir" th:selected ="${operacao == 'dividir'}">Dividir</option>
+    </select>
+
+    <button type="submit">Calcular</button>
+</form>
+<p th:if="${resultado != null}" th:text="${resultado}"></p>
+<p th:if="${erro != null}" th:text="${erro}" style="color: red"></p>
+
+
+</body>
+</html>
